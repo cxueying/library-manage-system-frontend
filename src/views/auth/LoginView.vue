@@ -7,6 +7,12 @@
             <div class="form-item">
                 <input v-model="password" type="password" placeholder="密码">
             </div>
+            <div class="form-item">
+                <select v-model="identity">
+                    <option value="guest">用户</option>
+                    <option value="admin">管理员</option>
+                </select>
+            </div>
             <button @click="login" :disabled="isLoading">
                 {{ isLoading ? '登录中...' : '登录' }}
             </button>
@@ -27,6 +33,7 @@ export default {
         const userStore = useUserStore();
         const username = ref('');
         const password = ref('');
+        const identity = ref('guest');
         const errorMessage = ref('');
         const isLoading = ref(false);
 
@@ -40,9 +47,12 @@ export default {
                 isLoading.value = true;
                 errorMessage.value = '';
                 
-                // 模拟API调用
-                if (username.value === 'admin' && password.value === 'admin') {
-                    const user = { id: 1, username: username.value, identity: 'admin' };
+                if (username.value === 'admin' && password.value === 'admin' && identity.value === 'admin') {
+                    const user = { id: 1, username: username.value, identity: identity.value };
+                    userStore.login(user);
+                    window.location.href = '/';
+                } else if (username.value === 'guest' && password.value === 'guest' && identity.value === 'guest') {
+                    const user = { id: 2, username: username.value, identity: identity.value };
                     userStore.login(user);
                     window.location.href = '/';
                 } else {
@@ -67,6 +77,7 @@ export default {
             errorMessage,
             isLoading,
             goToRegister,
+            identity,
         };
     },
 };
@@ -136,5 +147,14 @@ button:disabled {
 
 .register-btn:hover {
     background-color: #f0f9fd;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
 }
 </style>
