@@ -17,6 +17,15 @@ const api = {
     getBooks(){
         return axios.get(path.baseUrl + path.books);
     },
+    getLendHistory(userId) {
+        return axios.get(path.baseUrl + path.lendHistory + "/" + userId);
+    },
+    borrowBook(userId, bookId) {
+        return axios.post(path.baseUrl + path.borrow, { userId, bookId });
+    },
+    returnBook(userId, bookId) {
+        return axios.post(path.baseUrl + path.return, { userId, bookId });
+    },
 
     // user
     getUser(id){

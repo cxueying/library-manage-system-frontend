@@ -35,7 +35,7 @@
     <el-sub-menu index="/user" v-else>
       <template #title>{{ user.username }}</template>
       <el-menu-item index="/user/info">个人信息</el-menu-item>
-      <el-menu-item index="/user/lend">借阅</el-menu-item>
+      <el-menu-item index="/user/lend">借阅历史</el-menu-item>
       <el-sub-menu index="/other">
         <template #title>其他</template>
         <el-menu-item index="/setting">设置</el-menu-item>
