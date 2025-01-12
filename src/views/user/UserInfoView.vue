@@ -8,9 +8,9 @@
         </button>
       </div>
 
-      <div class="avatar-section">
+      <!-- <div class="avatar-section">
         <img :src="userInfo.avatar || defaultAvatar" alt="用户头像" class="avatar">
-      </div>
+      </div> -->
 
       <form class="user-form" @submit.prevent="saveUserInfo">
         <div class="form-group">
@@ -53,7 +53,7 @@ import { ref, onMounted } from 'vue'
 import api from '@/api'
 const defaultAvatar = 'https://img.rbl8nh185.nyat.app:42187/i/2025/01/11/6781cc9303d6d.jpeg'
 
-const user = JSON.parse(localStorage.getItem('user'));
+const userInfo = JSON.parse(localStorage.getItem('user'));
 
 const isEditing = ref(false)
 // const userInfo = ref({
