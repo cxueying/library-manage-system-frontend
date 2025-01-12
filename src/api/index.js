@@ -3,6 +3,12 @@ import path from "./path";
 
 const api = {
     // auth
+    register(data) {
+        return axios.post(path.baseUrl + path.register, data);
+    },
+    login(data) {
+        return axios.post(path.baseUrl + path.login, data);
+    },
 
     // book
     getBook(id){

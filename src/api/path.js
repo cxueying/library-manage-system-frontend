@@ -1,7 +1,9 @@
 const base = {
-    baseUrl:"http://localhost:3596",
+    baseUrl: "http://localhost:3596",
 
     // auth
+    login: '/api/auth/login',
+    register: '/api/auth/register',
 
     // book
     book: '/api/book',
