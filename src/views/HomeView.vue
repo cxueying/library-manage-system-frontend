@@ -44,17 +44,18 @@ export default {
           name: "test666",
           imageSrc: "https://img.rbl8nh185.nyat.app:42187/i/2025/01/11/6781cc93c3606.jpeg",
         }
-      ]
+      ],
+      user: {}
     }
   },
   components: {
     BookShow
   },
   mounted() {
-    api.getChengpin().then(res => {
+    api.getBooks().then(res => {
       console.log(res.data);
     });
-
+    this.user = localStorage.getItem('user');
   }
 }
 </script>

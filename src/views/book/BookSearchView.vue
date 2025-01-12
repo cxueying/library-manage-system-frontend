@@ -36,7 +36,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import BookShow from '../components/BookShow.vue'
+import BookShow from '@/components/BookShow.vue'
 
 const searchQuery = ref('')
 const searchResults = ref([])
